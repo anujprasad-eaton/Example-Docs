@@ -1,0 +1,1265 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to include code in docs | Eaton Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to include code in docs | Eaton Docs ">
+    <meta name="generator" content="docfx 2.56.1.0">
+    
+    <link rel="shortcut icon" href="../media/favicon.png">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../media/Eaton_PBW_Lit_RGB-160by64.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-include-code-in-docs">How to include code in docs</h1>
+
+<p>There are several ways to include code in an article published on docs.microsoft.com:</p>
+<ul>
+<li><p>Individual elements (words) within a line.</p>
+<p>Here's an example of <code>code</code> style.</p>
+<p>Use code format when referring to named parameters and variables in a nearby code block in your text. Code format may also be used for properties, methods, classes, and language keywords. For more information, see <a href="#code-elements">Code elements</a> later in this article..</p>
+</li>
+<li><p>Code blocks in the article Markdown file.</p>
+<pre><code class="lang-markdown">    ```csharp
+    public static void Log(string message)
+    {
+        _logger.LogInformation(message);
+    }
+    ```
+</code></pre>
+<p>Use inline code blocks when it's impractical to display code by reference to a code file. For more information, see <a href="#inline-code-blocks">Code blocks</a> later in this article.</p>
+</li>
+<li><p>Code blocks by reference to a code file in the local repository.</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; range=&quot;2-24,26&quot;:::
+</code></pre>
+<p>For more information, see <a href="#in-repo-snippet-references">In-repo snippet references</a> later in this article.</p>
+</li>
+<li><p>Code blocks by reference to a code file in another repository.</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;~/samples-durable-functions/samples/csx/shared/Location.csx&quot; highlight=&quot;2,5&quot;:::
+</code></pre>
+<p>For more information, see <a href="#out-of-repo-snippet-references">Out-of-repo snippet references</a> later in this article.</p>
+</li>
+<li><p>Code blocks that let the user execute code in the browser.</p>
+<pre><code class="lang-markdown">:::code source=&quot;PowerShell.ps1&quot; interactive=&quot;cloudshell-powershell&quot;:::
+</code></pre>
+<p>For more information, see <a href="#interactive-code-snippets">Interactive code snippets</a> later in this article.</p>
+</li>
+</ul>
+<p>Besides explaining the Markdown for each of these ways to include code, the article provides some
+<a href="#code-blocks">general guidance for all code blocks</a>.</p>
+<h2 id="code-elements">Code elements</h2>
+<p>A &quot;code element&quot; is a programming language keyword, class name, property name, and so forth. It's
+not always obvious what qualifies as code. For example, NuGet package names should be treated as
+code. When in doubt, see <a href="text-formatting-guidelines.html">Text formatting guidelines</a>.</p>
+<h3 id="inline-code-style">Inline code style</h3>
+<p>To include a code element in article text, surround it with backticks (`) to indicate code style.
+Inline code style shouldn't use the triple-backtick format.</p>
+<table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>Rendered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>By default, the Entity Framework interprets a property that's named `Id` or `ClassnameID` as the primary key.</td>
+<td>By default, the Entity Framework interprets a property that's named <code>Id</code> or <code>ClassnameID</code> as the primary key.</td>
+</tr>
+</tbody>
+</table>
+<p>When an article is localized (translated into other languages), text styled as code is left
+untranslated. If you want to prevent localization without using code style, see <a href="markdown-reference.html#non-localized-strings">Non-localized strings</a>.</p>
+<h3 id="bold-style">Bold style</h3>
+<p>Some older style guides specify bold for inline code. Bold is an option when code style is so
+obtrusive as to compromise readability. For example, a Markdown table with mostly code elements
+might look too busy with code styling everywhere. If you choose to use bold style, use <a href="markdown-reference.html#non-localized-strings">non-localized strings syntax</a> to make sure that code is not localized.</p>
+<h3 id="links">Links</h3>
+<p>A link to reference documentation may be more helpful than code format in some contexts. If you use a link, don't apply code format to the link text. Styling a link as code can obscure the fact that the text is a link.</p>
+<p>If you use a link and refer to the same element later in the same context, make the subsequent instances code format rather than links.</p>
+<h3 id="placeholders">Placeholders</h3>
+<p>If you want the user to replace a section of displayed code with their own values, use placeholder
+text marked off by angle brackets or curly braces. For example:
+<code>az group delete -n &lt;ResourceGroupName&gt;</code>. Explain that the brackets or braces must be removed when
+substituting real values.</p>
+<h2 id="code-blocks">Code blocks</h2>
+<p>The syntax for including code in a doc depends on where the code is located:</p>
+<ul>
+<li><a href="#inline-code-blocks">In the article Markdown file</a></li>
+<li><a href="#in-repo-snippet-references">In a code file in the same repository</a></li>
+<li><a href="#out-of-repo-snippet-references">In a code file in a different repository</a></li>
+</ul>
+<p>Following are guidelines that apply to all three types of code blocks:</p>
+<ul>
+<li><a href="#code-validation">Automate code validation.</a></li>
+<li><a href="#highlighting">Highlight key lines of code.</a></li>
+<li><a href="#horizontal-scroll-bars">Avoid horizontal scroll bars.</a></li>
+</ul>
+<h3 id="screenshots">Screenshots</h3>
+<p>All of the methods listed in the preceding section result in usable code blocks:</p>
+<ul>
+<li>You can copy and paste from them.</li>
+<li>They're indexed by search engines.</li>
+<li>They're accessible to screen readers.</li>
+</ul>
+<p>These are just a few of the reasons why IDE screenshots aren't recommended as a method of including
+code in an article. Use IDE screenshots for code only if you're showing something about the IDE
+itself, like IntelliSense. Don't use screenshots just to show colorization and highlighting.</p>
+<h3 id="code-validation">Code validation</h3>
+<p>Some repositories have implemented processes that automatically compile all sample code to check for
+errors. The .NET repository does this. For more information,
+see <a href="https://github.com/dotnet/docs/blob/master/CONTRIBUTING.md">Contributing</a> in the .NET
+repository.</p>
+<p>If you are including code blocks from another repository, work with the owners on a maintenance strategy for the code so that
+your included code does not break or go out of date as new versions of the libraries the code uses are shipped.</p>
+<h3 id="highlighting">Highlighting</h3>
+<p>Snippets typically include more code than necessary in order to provide context. It helps
+readability when you highlight the key lines that you're focusing on in the snippet, as in this
+example:</p>
+<p><img src="media/code-in-docs/highlighted-code.png" alt="Example showing highlighted code"></p>
+<p>You can't highlight code when you include it in the article Markdown file. It works only for code
+snippets included by reference to a code file.</p>
+<h3 id="horizontal-scroll-bars">Horizontal scroll bars</h3>
+<p>Break up long lines to avoid horizontal scroll bars. Scroll bars on code blocks make code hard to
+read. They're especially problematic on longer code blocks, where it may be impossible to see the
+scroll bar and the line you want to read at the same time.</p>
+<p>A good practice for minimizing horizontal scroll bars on code blocks is to break up code lines
+longer than 85 characters. But keep in mind that the presence or absence of a scroll bar isn't the
+only criterion of readability. If breaking a line before 85 hurts readability or copy-paste convenience, feel
+free to go over 85.</p>
+<h2 id="inline-code-blocks">Inline code blocks</h2>
+<p>Use inline code blocks only when it's impractical to display code by reference to a code file. Inline code is generally more difficult to test and keep up to date compared to a code file that is part of a complete project.  And inline code may omit context that could help the developer to understand and use the code. These considerations apply mainly to programming languages. Inline code blocks can also be used for outputs and inputs (such as JSON), query languages (such as SQL), and scripting languages (such as PowerShell).</p>
+<p>There are two ways to indicate a section of text in an article file is a code block: by <em>fencing</em> it
+in triple-backticks (```) or by indenting it. Fencing is preferred because it lets you specify
+the language. Avoid using indentation because it's too easy to get wrong and it may be hard for
+another writer to understand your intent when they need to edit your article.</p>
+<p>Language indicators are placed immediately after the opening triple-backticks, as in
+the following example:</p>
+<p>Markdown:</p>
+<pre><code class="lang-markdown">    ```json
+    {
+        &quot;aggregator&quot;: {
+            &quot;batchSize&quot;: 1000,
+            &quot;flushTimeout&quot;: &quot;00:00:30&quot;
+        }
+    }
+    ```
+</code></pre>
+<p>Rendered:</p>
+<pre><code class="lang-json">{
+    &quot;aggregator&quot;: {
+        &quot;batchSize&quot;: 1000,
+        &quot;flushTimeout&quot;: &quot;00:00:30&quot;
+    }
+}
+</code></pre>
+<p>For information about the values you can use as language indicators, see
+<a href="http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html#language-names-and-aliases">Language names and aliases</a>.</p>
+<p>If you use a language or environment word after the triple-backticks (```) that isn't supported,
+that word appears in the code section title bar on the rendered page. Whenever possible, use a language or
+environment indicator in your inline code blocks.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you copy and paste code from a Word document, make sure it has no &quot;curly quotes,&quot; which aren't valid in code (for example, <code>“</code> and <code>’</code>). If it does, change them back to normal quotes (<code>'</code> and <code>&quot;</code>). Alternatively, rely on the Docs Authoring Pack, <a href="docs-authoring/smart-quote-replacement.html">smart quotes replacement feature</a>.</p>
+</div>
+<h2 id="in-repo-snippet-references">In-repo snippet references</h2>
+<p>The preferred way to include code snippets for programming languages in docs is by reference to a code file. This method gives you the ability to highlight lines of code and makes the wider context of the snippet available on GitHub for developers to use. You can include code by using the triple colon format (:::) either manually or in Visual Studio Code with the help of the <a href="https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack">docs.microsoft.com Authoring Pack</a>.</p>
+<ol>
+<li>In Visual Studio Code, click <kbd>Alt + M</kbd> or <kbd>Option + M</kbd> and select Snippet.</li>
+<li>Once Snippet is selected, you will be prompted for Full Search, Scoped Search or Cross-Repository Reference. To search locally, select Full Search.</li>
+<li>Enter a search term to find the file. Once you've found the file, select the file.</li>
+<li>Next, select an option to determine which line(s) of code should be included in the snippet. The options are: <strong>ID</strong>, <strong>Range</strong> and <strong>None</strong>.</li>
+<li>Based on your selection from Step 4, provide a value if necessary.</li>
+</ol>
+<p>Display entire code file:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot;:::
+</code></pre>
+<p>Display part of a code file by specifying line numbers:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; range=&quot;2-24,26&quot;:::
+</code></pre>
+<p>Display part of a code file by specifying a snippet name:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; id=&quot;snippet_Create&quot;:::
+</code></pre>
+<p>The following sections explain these examples:</p>
+<ul>
+<li><a href="#path-to-code-file">Use a relative path to the code file</a></li>
+<li><a href="#selected-line-numbers">Include only selected line numbers</a></li>
+<li><a href="#named-snippet">Refer to a named snippet</a></li>
+<li><a href="#highlighting-selected-lines">Highlight selected lines</a></li>
+</ul>
+<p>For more information, see <a href="#snippet-syntax-reference">Snippet syntax reference</a> later in this
+article.</p>
+<h3 id="path-to-code-file">Path to code file</h3>
+<p>Example:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; range=&quot;2-24,26&quot;:::
+</code></pre>
+<p>The example is from the ASP.NET docs repo, <a href="https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/crud.md">aspnetcore/data/ef-mvc/crud.md</a>
+article file. The code file is referenced by a relative path to
+<a href="https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/samples/cu/Controllers/StudentsController.cs">aspnetcore/data/ef-mvc/intro/samples/cu/Controllers/StudentsController.cs</a>
+in the same repository.</p>
+<h3 id="selected-line-numbers">Selected line numbers</h3>
+<p>Example:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; range=&quot;2-24,26&quot;:::
+</code></pre>
+<p>This example displays only lines 2-24 and 26 of the <em>StudentController.cs</em> code file.</p>
+<p>Prefer named snippets over hard-coded line numbers, as explained in the next section.</p>
+<h3 id="named-snippet">Named snippet</h3>
+<p>Example:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; id=&quot;snippet_Create&quot;:::
+</code></pre>
+<p>Use only letters and underscores for the name.</p>
+<p>The example displays the <code>snippet_Create</code> section of the code file. The code file for this example
+has snippet tags in comments in the C# code:</p>
+<pre><code class="lang-cs">// code excluded from the snippet
+// &lt;snippet_Create&gt;
+// code included in the snippet
+// &lt;/snippet_Create&gt;
+// code excluded from the snippet
+</code></pre>
+<p>Whenever you can, refer to a named section rather than specifying line numbers. Line number
+references are brittle because code files inevitably change in ways that make line numbers change.
+You don't necessarily get notified of such changes. Your article eventually starts showing the wrong
+lines and you have no clue anything has changed.</p>
+<h3 id="highlighting-selected-lines">Highlighting selected lines</h3>
+<p>Example:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;intro/samples/cu/Controllers/StudentsController.cs&quot; range=&quot;2-24,26&quot; highlight=&quot;2,5&quot;:::
+</code></pre>
+<p>The example highlights lines 2 and 5, counting from the start of the displayed snippet. Line
+numbers to highlight don't count from the start of the code file. In other words, lines 3 and 6
+of the code file are highlighted.</p>
+<h2 id="out-of-repo-snippet-references">Out-of-repo snippet references</h2>
+<p>If the code file you want to reference is in a different repository, set up the code
+repository as a <em>dependent repository</em>. When you do that, you specify a name for it. That name then
+acts like a folder name for purposes of code references.</p>
+<p>For example, the docs repository is <em>Azure/azure-docs</em>, and the code repository is
+<em>Azure/azure-functions-durable-extension</em>.</p>
+<p>In the root folder of <em>azure-docs</em>, add the following section in
+<em>.openpublishing.publish.config.json</em>:</p>
+<pre><code class="lang-json">    {
+      &quot;path_to_root&quot;: &quot;samples-durable-functions&quot;,
+      &quot;url&quot;: &quot;https://github.com/Azure/azure-functions-durable-extension&quot;,
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;branch_mapping&quot;: {}
+    },
+</code></pre>
+<p>Now when you refer to <em>samples-durable-functions</em> as if it were a folder in <em>azure-docs</em>, you're
+actually referring to the root folder in the <em>azure-functions-durable-extension</em> repository.</p>
+<p>You can include code by using the triple colon format (:::) either manually or in Visual Studio Code with the help of the <a href="https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack">docs.microsoft.com Authoring Pack</a>.</p>
+<ol>
+<li>In Visual Studio Code, click <kbd>Alt + M</kbd> or <kbd>Option + M</kbd> and select Snippet.</li>
+<li>Once Snippet is selected, you will be prompted for Full Search, Scoped Search or Cross-Repository Reference. To search across repositories, select Cross-Repository Reference.</li>
+<li>You will be given a selection of repositories that are in <em>.openpublishing.publish.config.json</em>. Select a repository.</li>
+<li>Enter a search term to find the file. Once you've found the file, select the file.</li>
+<li>Next, select an option to determine which line(s) of code should be included in the snippet. The options are: <strong>ID</strong>, <strong>Range</strong> and <strong>None</strong>.</li>
+<li>Based on your selection from Step 5, provide a value.</li>
+</ol>
+<p>Your snippet reference will look like this:</p>
+<pre><code class="lang-markdown">:::code language=&quot;csharp&quot; source=&quot;~/samples-durable-functions/samples/csx/shared/Location.csx&quot; highlight=&quot;2,5&quot;:::
+</code></pre>
+<p>In the <em>azure-functions-durable-extension</em> repository, that code file is in the <em>samples/csx/shared</em>
+folder. As noted <a href="#highlighting-selected-lines">earlier</a>, line numbers for highlighting are relative to the start of the snippet rather than the start of the file.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The name you assign to the dependent repository is relative to the root of the main repository, but the tilde (~) refers to the root of the doc set. The doc set root is determined by <code>build_source_folder</code> in <em>.openpublishing.publish.config.json</em>. The path to the snippet in the preceding example works in the azure-docs repo because <code>build_source_folder</code> refers to the repo root (<code>.</code>). If <code>build_source_folder</code> were <code>articles</code>, the path would start with <code>~/../samples-durable-functions</code> instead of <code>~/samples-durable-functions</code>.</p>
+</div>
+<h2 id="interactive-code-snippets">Interactive code snippets</h2>
+<h3 id="inline-interactive-code-blocks">Inline interactive code blocks</h3>
+<p>For the following languages, code snippets can be made executable in the browser window:</p>
+<ul>
+<li>Azure Cloud Shell</li>
+<li>Azure PowerShell Cloud Shell</li>
+<li>C# REPL</li>
+</ul>
+<p>When interactive mode is enabled, the rendered code boxes have a <strong>Try It</strong> or <strong>Run</strong> button. For
+example:</p>
+<pre><code class="lang-markdown">    ```azurepowershell-interactive
+    New-AzResourceGroup -Name myResourceGroup -Location westeurope
+    ```
+</code></pre>
+<p>renders as follows:</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">New-AzResourceGroup -Name myResourceGroup -Location westeurope
+</code></pre>
+<p>To turn on this feature for a particular code block, use a special language identifier. The
+available options are:</p>
+<ul>
+<li><code>azurepowershell-interactive</code> - Enables the Azure PowerShell Cloud Shell, as in the preceding
+example</li>
+<li><code>azurecli-interactive</code> - Enables the Azure Cloud Shell</li>
+<li><code>csharp-interactive</code> - Enables the C# REPL</li>
+</ul>
+<p>For the Azure Cloud Shell and PowerShell Cloud Shell, users can run commands against only their own
+Azure account.</p>
+<h3 id="code-snippets-included-by-reference">Code snippets included by reference</h3>
+<p>You can enable interactive mode for code snippets included by reference. Here are examples:</p>
+<pre><code class="lang-markdown">:::code source=&quot;PowerShell.ps1&quot; interactive=&quot;cloudshell-powershell&quot;:::
+</code></pre>
+<pre><code class="lang-markdown">:::code source=&quot;Bash.sh&quot; interactive=&quot;cloudshell-bash&quot;:::
+</code></pre>
+<p>To turn on this feature for a particular code block, use the <code>interactive</code> attribute. The
+available attribute values are:</p>
+<ul>
+<li><code>cloudshell-powershell</code> - Enables the Azure PowerShell Cloud Shell, as in the preceding
+example</li>
+<li><code>cloudshell-bash</code> - Enables the Azure Cloud Shell</li>
+<li><code>try-dotnet</code> - Enables Try .NET</li>
+<li><code>try-dotnet-class</code> - Enables Try .NET with class scaffolding</li>
+<li><code>try-dotnet-method</code> - Enables Try .NET with method scaffolding</li>
+</ul>
+<p>For the Azure Cloud Shell and PowerShell Cloud Shell, users can only run commands against their own
+Azure account.</p>
+<h2 id="snippet-syntax-reference">Snippet syntax reference</h2>
+<p>Syntax:</p>
+<pre><code class="lang-md">:::code language=&quot;&lt;language&gt;&quot; source=&quot;&lt;path&gt;&quot; &lt;attribute&gt;=&quot;&lt;attribute-value&gt;&quot;:::
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>This syntax is a block Markdown extension. It must be used on its own line.</p>
+</div>
+<ul>
+<li><p><code>&lt;language&gt;</code> (<em>optional</em>)</p>
+<ul>
+<li>Language of the code snippet. For more information, see the <a href="#supported-languages">Supported languages</a>
+section later in this article.</li>
+</ul>
+</li>
+<li><p><code>&lt;path&gt;</code> (<em>mandatory</em>)</p>
+<ul>
+<li>Relative path in the file system that indicates the code snippet file to reference.</li>
+</ul>
+</li>
+<li><p><code>&lt;attribute&gt;</code> and <code>&lt;attribute-value&gt;</code> (<em>optional</em>)</p>
+<p>Used together to specify how the code should be retrieved from the file and how it should be displayed:</p>
+<ul>
+<li><code>range</code>: <code>1,3-5</code> A range of lines. This example includes lines 1, 3, 4, and 5.</li>
+<li><code>id</code>: <code>snippet_Create</code> The ID of the snippet that needs to be inserted from the code file. This value cannot co-exist with range.</li>
+<li><code>highlight</code>: <code>2-4,6</code> Range and/or numbers of lines that need to be highlighted in the generated code snippet. The numbering is relative to the lines displayed (as specified by range or id), not the file.</li>
+<li><code>interactive</code>: <code>cloudshell-powershell</code>, <code>cloudshell-bash</code>, <code>try-dotnet</code>, <code>try-dotnet-class</code>, <code>try-dotnet-method</code> String value determines what kinds of interactivity are enabled.</li>
+<li>For details about tag name representation in code snippet source files by language, see the <a href="https://dotnet.github.io/docfx/spec/docfx_flavored_markdown.html#tag-name-representation-in-code-snippet-source-file">DocFX guidelines</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="supported-languages">Supported languages</h2>
+<p>The <a href="how-to-write-docs-auth-pack.html">Docs Authoring Pack</a> includes a feature to provide statement completion and validation of the available language identifiers for code fence blocks.</p>
+<h3 id="fenced-code-blocks">Fenced code blocks</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Valid aliases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.NET Core CLI</td>
+<td><code>dotnetcli</code></td>
+</tr>
+<tr>
+<td>1C</td>
+<td><code>1c</code></td>
+</tr>
+<tr>
+<td>ABNF</td>
+<td><code>abnf</code></td>
+</tr>
+<tr>
+<td>Access logs</td>
+<td><code>accesslog</code></td>
+</tr>
+<tr>
+<td>Ada</td>
+<td><code>ada</code></td>
+</tr>
+<tr>
+<td>ARM assembler</td>
+<td><code>armasm</code>, <code>arm</code></td>
+</tr>
+<tr>
+<td>AVR assembler</td>
+<td><code>avrasm</code></td>
+</tr>
+<tr>
+<td>ActionScript</td>
+<td><code>actionscript</code>, <code>as</code></td>
+</tr>
+<tr>
+<td>Alan</td>
+<td><code>alan</code>, <code>i</code></td>
+</tr>
+<tr>
+<td>AngelScript</td>
+<td><code>angelscript</code>, <code>asc</code></td>
+</tr>
+<tr>
+<td>ANTLR</td>
+<td><code>antlr</code></td>
+</tr>
+<tr>
+<td>Apache</td>
+<td><code>apache</code>, <code>apacheconf</code></td>
+</tr>
+<tr>
+<td>AppleScript</td>
+<td><code>applescript</code>, <code>osascript</code></td>
+</tr>
+<tr>
+<td>Arcade</td>
+<td><code>arcade</code></td>
+</tr>
+<tr>
+<td>AsciiDoc</td>
+<td><code>asciidoc</code>, <code>adoc</code></td>
+</tr>
+<tr>
+<td>AspectJ</td>
+<td><code>aspectj</code></td>
+</tr>
+<tr>
+<td>ASPX</td>
+<td><code>aspx</code></td>
+</tr>
+<tr>
+<td>ASP.NET (C#)</td>
+<td><code>aspx-csharp</code></td>
+</tr>
+<tr>
+<td>ASP.NET (VB)</td>
+<td><code>aspx-vb</code></td>
+</tr>
+<tr>
+<td>AutoHotkey</td>
+<td><code>autohotkey</code></td>
+</tr>
+<tr>
+<td>AutoIt</td>
+<td><code>autoit</code></td>
+</tr>
+<tr>
+<td>Awk</td>
+<td><code>awk</code>, <code>mawk</code>, <code>nawk</code>, <code>gawk</code></td>
+</tr>
+<tr>
+<td>Axapta</td>
+<td><code>axapta</code></td>
+</tr>
+<tr>
+<td>AzCopy</td>
+<td><code>azcopy</code></td>
+</tr>
+<tr>
+<td>Azure CLI</td>
+<td><code>azurecli</code></td>
+</tr>
+<tr>
+<td>Azure CLI (Interactive)</td>
+<td><code>azurecli-interactive</code></td>
+</tr>
+<tr>
+<td>Azure Powershell</td>
+<td><code>azurepowershell</code></td>
+</tr>
+<tr>
+<td>Azure Powershell (Interactive)</td>
+<td><code>azurepowershell-interactive</code></td>
+</tr>
+<tr>
+<td>Bash</td>
+<td><code>bash</code>, <code>sh</code>, <code>zsh</code></td>
+</tr>
+<tr>
+<td>Basic</td>
+<td><code>basic</code></td>
+</tr>
+<tr>
+<td>BNF</td>
+<td><code>bnf</code></td>
+</tr>
+<tr>
+<td>C</td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td>C#</td>
+<td><code>csharp</code>, <code>cs</code></td>
+</tr>
+<tr>
+<td>C# (Interactive)</td>
+<td><code>csharp-interactive</code></td>
+</tr>
+<tr>
+<td>C++</td>
+<td><code>cpp</code>, <code>c</code>, <code>cc</code>, <code>h</code>, <code>c++</code>, <code>h++</code>, <code>hpp</code></td>
+</tr>
+<tr>
+<td>C++/CX</td>
+<td><code>cppcx</code></td>
+</tr>
+<tr>
+<td>C++/WinRT</td>
+<td><code>cppwinrt</code></td>
+</tr>
+<tr>
+<td>C/AL</td>
+<td><code>cal</code></td>
+</tr>
+<tr>
+<td>Cache Object Script</td>
+<td><code>cos</code>, <code>cls</code></td>
+</tr>
+<tr>
+<td>CMake</td>
+<td><code>cmake</code>, <code>cmake.in</code></td>
+</tr>
+<tr>
+<td>Coq</td>
+<td><code>coq</code></td>
+</tr>
+<tr>
+<td>CSP</td>
+<td><code>csp</code></td>
+</tr>
+<tr>
+<td>CSS</td>
+<td><code>css</code></td>
+</tr>
+<tr>
+<td>Cap'n Proto</td>
+<td><code>capnproto</code>, <code>capnp</code></td>
+</tr>
+<tr>
+<td>Clojure</td>
+<td><code>clojure</code>, <code>clj</code></td>
+</tr>
+<tr>
+<td>CoffeeScript</td>
+<td><code>coffeescript</code>, <code>coffee</code>, <code>cson</code>, <code>iced</code></td>
+</tr>
+<tr>
+<td>Crmsh</td>
+<td><code>crmsh</code>, <code>crm</code>, <code>pcmk</code></td>
+</tr>
+<tr>
+<td>Crystal</td>
+<td><code>crystal</code>, <code>cr</code></td>
+</tr>
+<tr>
+<td>Cypher (Neo4j)</td>
+<td><code>cypher</code></td>
+</tr>
+<tr>
+<td>D</td>
+<td><code>d</code></td>
+</tr>
+<tr>
+<td>DAX Power BI</td>
+<td><code>dax</code></td>
+</tr>
+<tr>
+<td>DNS Zone file</td>
+<td><code>dns</code>, <code>zone</code>, <code>bind</code></td>
+</tr>
+<tr>
+<td>DOS</td>
+<td><code>dos</code>, <code>bat</code>, <code>cmd</code></td>
+</tr>
+<tr>
+<td>Dart</td>
+<td><code>dart</code></td>
+</tr>
+<tr>
+<td>Delphi</td>
+<td><code>delphi</code>, <code>dpr</code>, <code>dfm</code>, <code>pas</code>, <code>pascal</code>, <code>freepascal</code>, <code>lazarus</code>, <code>lpr</code>, <code>lfm</code></td>
+</tr>
+<tr>
+<td>Diff</td>
+<td><code>diff</code>, <code>patch</code></td>
+</tr>
+<tr>
+<td>Django</td>
+<td><code>django</code>, <code>jinja</code></td>
+</tr>
+<tr>
+<td>Dockerfile</td>
+<td><code>dockerfile</code>, <code>docker</code></td>
+</tr>
+<tr>
+<td>dsconfig</td>
+<td><code>dsconfig</code></td>
+</tr>
+<tr>
+<td>DTS (Device Tree)</td>
+<td><code>dts</code></td>
+</tr>
+<tr>
+<td>Dust</td>
+<td><code>dust</code>, <code>dst</code></td>
+</tr>
+<tr>
+<td>Dylan</td>
+<td><code>dylan</code></td>
+</tr>
+<tr>
+<td>EBNF</td>
+<td><code>ebnf</code></td>
+</tr>
+<tr>
+<td>Elixir</td>
+<td><code>elixir</code></td>
+</tr>
+<tr>
+<td>Elm</td>
+<td><code>elm</code></td>
+</tr>
+<tr>
+<td>Erlang</td>
+<td><code>erlang</code>, <code>erl</code></td>
+</tr>
+<tr>
+<td>Excel</td>
+<td><code>excel</code>, <code>xls</code>, <code>xlsx</code></td>
+</tr>
+<tr>
+<td>Extempore</td>
+<td><code>extempore</code>, <code>xtlang</code>, <code>xtm</code></td>
+</tr>
+<tr>
+<td>F#</td>
+<td><code>fsharp</code>, <code>fs</code></td>
+</tr>
+<tr>
+<td>FIX</td>
+<td><code>fix</code></td>
+</tr>
+<tr>
+<td>Fortran</td>
+<td><code>fortran</code>, <code>f90</code>, <code>f95</code></td>
+</tr>
+<tr>
+<td>G-Code</td>
+<td><code>gcode</code>, <code>nc</code></td>
+</tr>
+<tr>
+<td>Gams</td>
+<td><code>gams</code>, <code>gms</code></td>
+</tr>
+<tr>
+<td>GAUSS</td>
+<td><code>gauss</code>, <code>gss</code></td>
+</tr>
+<tr>
+<td>GDScript</td>
+<td><code>godot</code>, <code>gdscript</code></td>
+</tr>
+<tr>
+<td>Gherkin</td>
+<td><code>gherkin</code></td>
+</tr>
+<tr>
+<td>GN for Ninja</td>
+<td><code>gn</code>, <code>gni</code></td>
+</tr>
+<tr>
+<td>Go</td>
+<td><code>go</code>, <code>golang</code></td>
+</tr>
+<tr>
+<td>Golo</td>
+<td><code>golo</code>, <code>gololang</code></td>
+</tr>
+<tr>
+<td>Gradle</td>
+<td><code>gradle</code></td>
+</tr>
+<tr>
+<td>Groovy</td>
+<td><code>groovy</code></td>
+</tr>
+<tr>
+<td>HTML</td>
+<td><code>html</code>, <code>xhtml</code></td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td><code>http</code>, <code>https</code></td>
+</tr>
+<tr>
+<td>Haml</td>
+<td><code>haml</code></td>
+</tr>
+<tr>
+<td>Handlebars</td>
+<td><code>handlebars</code>, <code>hbs</code>, <code>html.hbs</code>, <code>html.handlebars</code></td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td><code>haskell</code>, <code>hs</code></td>
+</tr>
+<tr>
+<td>Haxe</td>
+<td><code>haxe</code>, <code>hx</code></td>
+</tr>
+<tr>
+<td>Hy</td>
+<td><code>hy</code>, <code>hylang</code></td>
+</tr>
+<tr>
+<td>Ini</td>
+<td><code>ini</code></td>
+</tr>
+<tr>
+<td>Inform7</td>
+<td><code>inform7</code>, <code>i7</code></td>
+</tr>
+<tr>
+<td>IRPF90</td>
+<td><code>irpf90</code></td>
+</tr>
+<tr>
+<td>JSON</td>
+<td><code>json</code></td>
+</tr>
+<tr>
+<td>Java</td>
+<td><code>java</code>, <code>jsp</code></td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td><code>javascript</code>, <code>js</code>, <code>jsx</code></td>
+</tr>
+<tr>
+<td>Kotlin</td>
+<td><code>kotlin</code>, <code>kt</code></td>
+</tr>
+<tr>
+<td>Kusto</td>
+<td><code>kusto</code></td>
+</tr>
+<tr>
+<td>Leaf</td>
+<td><code>leaf</code></td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td><code>lasso</code>, <code>ls</code>, <code>lassoscript</code></td>
+</tr>
+<tr>
+<td>Less</td>
+<td><code>less</code></td>
+</tr>
+<tr>
+<td>LDIF</td>
+<td><code>ldif</code></td>
+</tr>
+<tr>
+<td>Lisp</td>
+<td><code>lisp</code></td>
+</tr>
+<tr>
+<td>LiveCode Server</td>
+<td><code>livecodeserver</code></td>
+</tr>
+<tr>
+<td>LiveScript</td>
+<td><code>livescript</code>, <code>ls</code></td>
+</tr>
+<tr>
+<td>Lua</td>
+<td><code>lua</code></td>
+</tr>
+<tr>
+<td>Makefile</td>
+<td><code>makefile</code>, <code>mk</code>, <code>mak</code></td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td><code>markdown</code>, <code>md</code>, <code>mkdown</code>, <code>mkd</code></td>
+</tr>
+<tr>
+<td>Mathematica</td>
+<td><code>mathematica</code>, <code>mma</code>, <code>wl</code></td>
+</tr>
+<tr>
+<td>Matlab</td>
+<td><code>matlab</code></td>
+</tr>
+<tr>
+<td>Maxima</td>
+<td><code>maxima</code></td>
+</tr>
+<tr>
+<td>Maya Embedded Language</td>
+<td><code>mel</code></td>
+</tr>
+<tr>
+<td>Mercury</td>
+<td><code>mercury</code></td>
+</tr>
+<tr>
+<td>mIRC Scripting Language</td>
+<td><code>mirc</code>, <code>mrc</code></td>
+</tr>
+<tr>
+<td>Mizar</td>
+<td><code>mizar</code></td>
+</tr>
+<tr>
+<td>Managed Object Format</td>
+<td><code>mof</code></td>
+</tr>
+<tr>
+<td>Mojolicious</td>
+<td><code>mojolicious</code></td>
+</tr>
+<tr>
+<td>Monkey</td>
+<td><code>monkey</code></td>
+</tr>
+<tr>
+<td>Moonscript</td>
+<td><code>moonscript</code>, <code>moon</code></td>
+</tr>
+<tr>
+<td>MS Graph (Interactive)</td>
+<td><code>msgraph-interactive</code></td>
+</tr>
+<tr>
+<td>N1QL</td>
+<td><code>n1ql</code></td>
+</tr>
+<tr>
+<td>NSIS</td>
+<td><code>nsis</code></td>
+</tr>
+<tr>
+<td>Nginx</td>
+<td><code>nginx</code>, <code>nginxconf</code></td>
+</tr>
+<tr>
+<td>Nimrod</td>
+<td><code>nimrod</code>, <code>nim</code></td>
+</tr>
+<tr>
+<td>Nix</td>
+<td><code>nix</code></td>
+</tr>
+<tr>
+<td>OCaml</td>
+<td><code>ocaml</code>, <code>ml</code></td>
+</tr>
+<tr>
+<td>Objective C</td>
+<td><code>objectivec</code>, <code>mm</code>, <code>objc</code>, <code>obj-c</code></td>
+</tr>
+<tr>
+<td>OpenGL Shading Language</td>
+<td><code>glsl</code></td>
+</tr>
+<tr>
+<td>OpenSCAD</td>
+<td><code>openscad</code>, <code>scad</code></td>
+</tr>
+<tr>
+<td>Oracle Rules Language</td>
+<td><code>ruleslanguage</code></td>
+</tr>
+<tr>
+<td>Oxygene</td>
+<td><code>oxygene</code></td>
+</tr>
+<tr>
+<td>PF</td>
+<td><code>pf</code>, <code>pf.conf</code></td>
+</tr>
+<tr>
+<td>PHP</td>
+<td><code>php</code>, <code>php3</code>, <code>php4</code>, <code>php5</code>, <code>php6</code></td>
+</tr>
+<tr>
+<td>Parser3</td>
+<td><code>parser3</code></td>
+</tr>
+<tr>
+<td>Perl</td>
+<td><code>perl</code>, <code>pl</code>, <code>pm</code></td>
+</tr>
+<tr>
+<td>Plaintext no highlight</td>
+<td><code>plaintext</code></td>
+</tr>
+<tr>
+<td>Pony</td>
+<td><code>pony</code></td>
+</tr>
+<tr>
+<td>PostgreSQL &amp; PL/pgSQL</td>
+<td><code>pgsql</code>, <code>postgres</code>, <code>postgresql</code></td>
+</tr>
+<tr>
+<td>PowerShell</td>
+<td><code>powershell</code>, <code>ps</code></td>
+</tr>
+<tr>
+<td>PowerShell (Interactive)</td>
+<td><code>powershell-interactive</code></td>
+</tr>
+<tr>
+<td>Processing</td>
+<td><code>processing</code></td>
+</tr>
+<tr>
+<td>Prolog</td>
+<td><code>prolog</code></td>
+</tr>
+<tr>
+<td>Properties</td>
+<td><code>properties</code></td>
+</tr>
+<tr>
+<td>Protocol Buffers</td>
+<td><code>protobuf</code></td>
+</tr>
+<tr>
+<td>Puppet</td>
+<td><code>puppet</code>, <code>pp</code></td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>python</code>, <code>py</code>, <code>gyp</code></td>
+</tr>
+<tr>
+<td>Python profiler results</td>
+<td><code>profile</code></td>
+</tr>
+<tr>
+<td>Q#</td>
+<td><code>qsharp</code></td>
+</tr>
+<tr>
+<td>Q</td>
+<td><code>k</code>, <code>kdb</code></td>
+</tr>
+<tr>
+<td>QML</td>
+<td><code>qml</code></td>
+</tr>
+<tr>
+<td>R</td>
+<td><code>r</code></td>
+</tr>
+<tr>
+<td>Razor CSHTML</td>
+<td><code>cshtml</code>, <code>razor</code>, <code>razor-cshtml</code></td>
+</tr>
+<tr>
+<td>ReasonML</td>
+<td><code>reasonml</code>, <code>re</code></td>
+</tr>
+<tr>
+<td>RenderMan RIB</td>
+<td><code>rib</code></td>
+</tr>
+<tr>
+<td>RenderMan RSL</td>
+<td><code>rsl</code></td>
+</tr>
+<tr>
+<td>Roboconf</td>
+<td><code>graph</code>, <code>instances</code></td>
+</tr>
+<tr>
+<td>Robot Framework</td>
+<td><code>robot</code>, <code>rf</code></td>
+</tr>
+<tr>
+<td>RPM spec files</td>
+<td><code>rpm-specfile</code>, <code>rpm</code>, <code>spec</code>, <code>rpm-spec</code>, <code>specfile</code></td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td><code>ruby</code>, <code>rb</code>, <code>gemspec</code>, <code>podspec</code>, <code>thor</code>, <code>irb</code></td>
+</tr>
+<tr>
+<td>Rust</td>
+<td><code>rust</code>, <code>rs</code></td>
+</tr>
+<tr>
+<td>SAS</td>
+<td><code>SAS</code>, <code>sas</code></td>
+</tr>
+<tr>
+<td>SCSS</td>
+<td><code>scss</code></td>
+</tr>
+<tr>
+<td>SQL</td>
+<td><code>sql</code></td>
+</tr>
+<tr>
+<td>STEP Part 21</td>
+<td><code>p21</code>, <code>step</code>, <code>stp</code></td>
+</tr>
+<tr>
+<td>Scala</td>
+<td><code>scala</code></td>
+</tr>
+<tr>
+<td>Scheme</td>
+<td><code>scheme</code></td>
+</tr>
+<tr>
+<td>Scilab</td>
+<td><code>scilab</code>, <code>sci</code></td>
+</tr>
+<tr>
+<td>Shape Expressions</td>
+<td><code>shexc</code></td>
+</tr>
+<tr>
+<td>Shell</td>
+<td><code>shell</code>, <code>console</code></td>
+</tr>
+<tr>
+<td>Smali</td>
+<td><code>smali</code></td>
+</tr>
+<tr>
+<td>Smalltalk</td>
+<td><code>smalltalk</code>, <code>st</code></td>
+</tr>
+<tr>
+<td>Solidity</td>
+<td><code>solidity</code>, <code>sol</code></td>
+</tr>
+<tr>
+<td>Stan</td>
+<td><code>stan</code></td>
+</tr>
+<tr>
+<td>Stata</td>
+<td><code>stata</code></td>
+</tr>
+<tr>
+<td>Structured Text</td>
+<td><code>iecst</code>, <code>scl</code>, <code>stl</code>, <code>structured-text</code></td>
+</tr>
+<tr>
+<td>Stylus</td>
+<td><code>stylus</code>, <code>styl</code></td>
+</tr>
+<tr>
+<td>SubUnit</td>
+<td><code>subunit</code></td>
+</tr>
+<tr>
+<td>Supercollider</td>
+<td><code>supercollider</code>, <code>sc</code></td>
+</tr>
+<tr>
+<td>Swift</td>
+<td><code>swift</code></td>
+</tr>
+<tr>
+<td>Tcl</td>
+<td><code>tcl</code>, <code>tk</code></td>
+</tr>
+<tr>
+<td>Terraform (HCL)</td>
+<td><code>terraform</code>, <code>tf</code>, <code>hcl</code></td>
+</tr>
+<tr>
+<td>Test Anything Protocol</td>
+<td><code>tap</code></td>
+</tr>
+<tr>
+<td>TeX</td>
+<td><code>tex</code></td>
+</tr>
+<tr>
+<td>Thrift</td>
+<td><code>thrift</code></td>
+</tr>
+<tr>
+<td>TOML</td>
+<td><code>toml</code></td>
+</tr>
+<tr>
+<td>TP</td>
+<td><code>tp</code></td>
+</tr>
+<tr>
+<td>Twig</td>
+<td><code>twig</code>, <code>craftcms</code></td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td><code>typescript</code>, <code>ts</code></td>
+</tr>
+<tr>
+<td>VB.NET</td>
+<td><code>vbnet</code>, <code>vb</code></td>
+</tr>
+<tr>
+<td>VBScript</td>
+<td><code>vbscript</code>, <code>vbs</code></td>
+</tr>
+<tr>
+<td>VHDL</td>
+<td><code>vhdl</code></td>
+</tr>
+<tr>
+<td>Vala</td>
+<td><code>vala</code></td>
+</tr>
+<tr>
+<td>Verilog</td>
+<td><code>verilog</code>, <code>v</code></td>
+</tr>
+<tr>
+<td>Vim Script</td>
+<td><code>vim</code></td>
+</tr>
+<tr>
+<td>X++</td>
+<td><code>xpp</code></td>
+</tr>
+<tr>
+<td>x86 Assembly</td>
+<td><code>x86asm</code></td>
+</tr>
+<tr>
+<td>XL</td>
+<td><code>xl</code>, <code>tao</code></td>
+</tr>
+<tr>
+<td>XQuery</td>
+<td><code>xquery</code>, <code>xpath</code>, <code>xq</code></td>
+</tr>
+<tr>
+<td>XAML</td>
+<td><code>xaml</code></td>
+</tr>
+<tr>
+<td>XML</td>
+<td><code>xml</code>, <code>xhtml</code>, <code>rss</code>, <code>atom</code>, <code>xjb</code>, <code>xsd</code>, <code>xsl</code>, <code>plist</code></td>
+</tr>
+<tr>
+<td>YAML</td>
+<td><code>yml</code>, <code>yaml</code></td>
+</tr>
+<tr>
+<td>Zephir</td>
+<td><code>zephir</code>, <code>zep</code></td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The Docs Authoring Pack, <a href="docs-authoring/dev-lang-completion.html">Dev Lang Completion feature</a> uses the first valid alias when multiple aliases are available.</p>
+</div>
+<h2 id="next-steps">Next steps</h2>
+<p>For information on text formatting for content types other than code, see <a href="text-formatting-guidelines.html">Text formatting guidelines</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://dev.azure.com/DevOps-Experiments-Org/Documentation/_git/Documentation?path=Docs/content-authoring/code-in-docs.md&amp;version=GBmaster&amp;line=1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Eaton IT Innovation Documentation &copy; 2021
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Text formatting guidelines | Eaton Docs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Text formatting guidelines | Eaton Docs ">
+    <meta name="generator" content="docfx 2.56.1.0">
+    
+    <link rel="shortcut icon" href="../media/favicon.png">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../media/Eaton_PBW_Lit_RGB-160by64.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="text-formatting-guidelines">Text formatting guidelines</h1>
+
+<p>Consistent and appropriate use of bold, italic, and code style for text elements improves
+readability and helps avoid misunderstandings.</p>
+<h2 id="bold">Bold</h2>
+<p>Use bold for UI elements, such as menu selections, dialog box names, and input field names.</p>
+<h3 id="examples">Examples</h3>
+<ul>
+<li><strong>This</strong>: In <strong>Solution Explorer</strong>, right-click the project node, and then select <strong>Add &gt; New Item</strong>.</li>
+<li><strong>Not this</strong>: In Solution Explorer, right-click the project node, and then select Add &gt; New Item.</li>
+<li><strong>Not this</strong>: In <em>Solution Explorer</em>, right-click the project node, and then select <em>Add &gt; New Item</em>.</li>
+</ul>
+<h2 id="italics">Italics</h2>
+<p>Use italics for:</p>
+<ul>
+<li>Introducing new terms along with a definition or explanation.</li>
+<li>File names, folder names, paths.</li>
+<li>User input.</li>
+</ul>
+<h3 id="examples-1">Examples</h3>
+<ul>
+<li><strong>This</strong>: In App Service, an app runs in an <em>App Service plan</em>. An App Service plan defines a set of compute resources for a web app to run on.</li>
+<li><strong>Not this</strong>: In App Service, an app runs in an &quot;App Service plan.&quot; An App Service plan defines a set of compute resources for a web app to run on.</li>
+<li><strong>This</strong>: Replace the code in <em>HttpTriggerCSharp.cs</em> with the following code.</li>
+<li><strong>Not this</strong>: Replace the code in <code>HttpTriggerCSharp.cs</code> with the following code.</li>
+<li><strong>This</strong>: Enter <em>ContosoUniversity</em> for the <strong>Name</strong>, and then select <strong>Add</strong>.</li>
+<li><strong>Not this</strong>: Enter &quot;ContosoUniversity&quot; for the <strong>Name</strong>, and then select <strong>Add</strong>.</li>
+</ul>
+<h2 id="code-style">Code style</h2>
+<p>Use code style for:</p>
+<ul>
+<li>Code elements, such as method names, property names, and language keywords.</li>
+<li>SQL commands</li>
+<li>NuGet package names</li>
+<li>Command-line commands</li>
+<li>Database table and column names</li>
+<li>Resource names that should not be localized (such as virtual machine names)</li>
+<li>URLs that you don't want to be clickable</li>
+</ul>
+<p><strong>Why?</strong> Older style guides specify bold for many of these text elements. However, most articles are
+localized, and code style tells the translator to leave that part of the text untranslated.</p>
+<p>Code style can be <em>inline</em> (surrounded by `) or <em>fenced</em> code blocks (surrounded by ```) that
+span multiple lines. Put longer code snippets and paths in fenced code blocks.</p>
+<h3 id="examples-using-inline-styles">Examples using inline styles</h3>
+<ul>
+<li><strong>This</strong>: By default, the Entity Framework interprets a property that's named <code>Id</code> or <code>ClassnameID</code> as the primary key.</li>
+<li><strong>Not this</strong>: By default, the Entity Framework interprets a property that's named <em>Id</em> or <em>ClassnameID</em> as the primary key.</li>
+<li><strong>This</strong>: The <code>Microsoft.EntityFrameworkCore</code> package provides runtime support for EF Core.</li>
+<li><strong>Not this</strong>: The <em>Microsoft.EntityFrameworkCore</em> package provides runtime support for EF Core.</li>
+</ul>
+<h3 id="examples-of-fenced-code-blocks">Examples of fenced code blocks</h3>
+<ul>
+<li><p><strong>This</strong>: No commands are sent to the database by statements that just change an <code>IQueryable</code>, such as the following code:</p>
+<pre><code class="lang-markdown">    ```csharp
+    var students = context.Students.Where(s =&gt; s.LastName == &quot;Davolio&quot;)
+    ```
+</code></pre>
+</li>
+<li><p><strong>Not this</strong>: No commands are sent to the database by statements that just change an <strong>IQueryable</strong>, such as <strong>var students = context.Students.Where(s =&gt; s.LastName == &quot;Davolio&quot;)</strong>.</p>
+</li>
+<li><p><strong>This</strong>: For example, to run the <code>Get-ServiceLog.ps1</code> script in the <code>C:\Scripts</code> directory, type:</p>
+<pre><code class="lang-markdown">    ```powershell
+    C:\Scripts\Get-ServiceLog.ps1
+    ```
+</code></pre>
+</li>
+<li><p><strong>Not this</strong>: For example, to run the <strong>Get-ServiceLog.ps1</strong> script in the <strong>C:\Scripts</strong> directory, type: &quot;C:\Scripts\Get-ServiceLog.ps1.&quot;</p>
+</li>
+<li><p><strong>All</strong> fenced code blocks must have an approved language tag. For a list of support language tags, see <a href="code-in-docs.html#supported-languages">How to include code in docs</a>.</p>
+</li>
+</ul>
+<h2 id="headings-and-link-text">Headings and link text</h2>
+<p>Don't apply an inline style such as italics, bold, or code to headings or hyperlink text.</p>
+<p><strong>Why?</strong></p>
+<p>People rely on standard hyperlink text to identify text elements as clickable links. Styling a link
+as code, for example, can obscure the fact that the text is a link. Headings have their own styles
+and mixing other styles in them looks bad.</p>
+<h3 id="examples-2">Examples</h3>
+<ul>
+<li><p><strong>This</strong>: The <em>function.json</em> file is generated by the NuGet package <a href="http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions">Microsoft.NET.Sdk.Functions</a>.</p>
+</li>
+<li><p><strong>Not this</strong>: The <em>function.json</em> file is generated by the NuGet package <a href="http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions"><code>Microsoft.NET.Sdk.Functions</code></a>.</p>
+</li>
+<li><p><strong>This</strong>:</p>
+<pre><code class="lang-markdown">### The Microsoft.NET.Sdk.Functions package
+</code></pre>
+</li>
+<li><p><strong>Not this</strong>:</p>
+<pre><code class="lang-markdown">### The `Microsoft.NET.Sdk.Functions` package
+</code></pre>
+</li>
+</ul>
+<h2 id="keys-and-keyboard-shortcuts">Keys and keyboard shortcuts</h2>
+<p>When referring to keys or key combinations, follow these conventions:</p>
+<ul>
+<li>Capitalize the first letter of key names.</li>
+<li>Don't apply an inline style such as italics, bold, or code.</li>
+<li>Use &quot;+&quot; to join keys that are pressed at the same time.</li>
+</ul>
+<h3 id="examples-3">Examples</h3>
+<ul>
+<li><strong>This</strong>: Select Alt+Ctrl+S.</li>
+<li><strong>Not this</strong>: Press <strong>ALT+CTRL+S</strong>.</li>
+<li><strong>Not this</strong>: Hit <code>ALT+CTRL+S</code>.</li>
+</ul>
+<p>For more information, see <a href="https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700&amp;topicid=26472">Describing interactions with UI</a>.</p>
+<h2 id="exceptions">Exceptions</h2>
+<p>Style guidelines aren't rigid rules. In contexts where they harm readability, do something
+different. For example, an HTML table with mostly code elements might look too busy with code
+styling everywhere. You might choose bold styling in that context.</p>
+<p>If you choose an alternate text style where code is normally called for, make sure it's okay for the text
+to be translated in localized versions of the article. Code is the only style that automatically
+prevents translation. For scenarios where you want to prevent localization without using code style, see <a href="markdown-reference.html#non-localized-strings">Non-localized strings</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://dev.azure.com/DevOps-Experiments-Org/Documentation/_git/Documentation?path=Docs/content-authoring/text-formatting-guidelines.md&amp;version=GBmaster&amp;line=1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Eaton IT Innovation Documentation &copy; 2021
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
