@@ -1,0 +1,14 @@
+- name: Hardware
+  href: index.md
+  items:
+    - name: HoloLens 2
+      href: HoloLens/toc.yml
+- name: Software
+  href: index.md
+  items:    
+    - name: Remote Assist
+      href: Remote-Assist/toc.yml
+    - name: Guides
+      href: Guides/toc.yml
+    - name: Layouts
+      href: Layout/toc.yml
